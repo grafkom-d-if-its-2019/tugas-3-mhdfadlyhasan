@@ -10,7 +10,7 @@ uniform float translasi;
 
 void main() {
   fColor = vColor;
-  vec3 translate = vec3(-0.5, 0, 0.0);
+  vec3 translate = vec3(-0.1, 0, 0.0);
   mat4 translationMatrix = mat4(
     1.0, 0.0, 0.0, 0.0,
     0.0, 1.0, 0.0, 0.0,
@@ -24,8 +24,8 @@ void main() {
     0.0, 0.0, 0.0, 1.0
   );
   mat4 scalationMatrix = mat4(
-    scaleX*0.5, 0.0, 0.0, 0.0,
-    0.0, scaleY*0.5, 0.0, 0.0,
+    scaleX*0.3, 0.0, 0.0, 0.0,
+    0.0, scaleY*0.3, 0.0, 0.0,
     0.0, 0.0, 1.0, 0.0,
     0.0, 0.0, 0.0, 1.0
   );
