@@ -1,37 +1,18 @@
 precision mediump float;
 
-attribute vec2 vPosition;
+attribute vec3 vPosition;
 attribute vec3 vColor;
 varying vec3 fColor;
 uniform vec3 theta;
-uniform vec3 vec;
-uniform float size;
+// uniform mat4 projection;
+// uniform mat4 modelView;
 
 void main() {
   fColor = vColor;
+
   vec3 angle = radians(theta);
   vec3 c = cos(angle);
   vec3 s = sin(angle);
-
-  //Bouncing Around
-  
-  mat4 translate = mat4(
-    1.0, 0.0, 0.0, vec.x,
-    0.0, 1.0, 0.0, vec.y,
-    0.0, 0.0, 1.0, vec.z,
-    0.0, 0.0, 0.0, 1.0
-  );
-
-  //Minimize The Letter
-
-  mat4 scale = mat4(
-    size, 0.0, 0.0, 0.0,
-    0.0, size, 0.0, 0.0,
-    0.0, 0.0, 1.0, 0.0,
-    0.0, 0.0, 0.0, 1.0
-  );
-
-  //Rotate The Letter
 
   mat4 rx = mat4(
     1.0, 0.0, 0.0, 0.0,
@@ -54,6 +35,5 @@ void main() {
     0.0, 0.0, 0.0, 1.0
   );
 
-  gl_Position = vec4(vPosition, 0.0, 1.0) * scale * rz * ry * rx;
-  gl_Position = gl_Position * translate;
+  gl_Position = vec4(vPosition, 1.0) * rz * ry * rx ;
 }
